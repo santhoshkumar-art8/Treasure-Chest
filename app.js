@@ -4,7 +4,7 @@ let ejs=require('ejs');
 let _=require('lodash')
 let uploads=require('express-fileupload');
 let app=express();
-let port=8000;
+let port=process.env.PORT||8000;
 
 app.set('view engine','ejs');
 app.use(express.urlencoded({extended:true}));
@@ -15,8 +15,8 @@ let arr=[];
 let match="";
 let b="";
 
-//   const uri="mongodb+srv://santhosh:1234@cluster0.xq2wt.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
-mongoose.connect( 'mongodb://localhost:27017/picdb');
+  const uri="mongodb+srv://santhosh:1234@cluster0.xq2wt.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+mongoose.connect( uri || 'mongodb://localhost:27017/picdb');
 
 mongoose.connection.on('connected',()=>{
     console.log("mongoDb connected");

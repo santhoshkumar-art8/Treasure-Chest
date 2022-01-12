@@ -15,7 +15,7 @@ let arr=[];
 let match="";
 let b="";
 
- const uri="mongodb+srv://santhosh:1234@cluster0.xq2wt.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+  const uri="mongodb+srv://santhosh:1234@cluster0.xq2wt.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
 mongoose.connect(uri || 'mongodb://localhost:27017/picdb');
 
 mongoose.connection.on('connected',()=>{
@@ -135,6 +135,8 @@ app.post('/compose',(req,res)=>{
     });
     
             picdocs.save();
+
+            arr=[];
 
     res.redirect('/#books');
    }

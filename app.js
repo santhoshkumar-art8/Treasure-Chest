@@ -15,8 +15,8 @@ let arr=[];
 let match="";
 let b="";
 
-const uri="mongodb+srv://santhosh:1234@cluster0.xq2wt.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
-mongoose.connect(uri||'mongodb://localhost:27017/picdb');
+ const uri="mongodb+srv://santhosh:1234@cluster0.xq2wt.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+mongoose.connect(uri || 'mongodb://localhost:27017/picdb');
 
 mongoose.connection.on('connected',()=>{
     console.log("mongoDb connected");
@@ -131,7 +131,6 @@ app.post('/compose',(req,res)=>{
        name:name,
        num:num,
        email:email,
-       
        filename:arr
     });
     

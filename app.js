@@ -15,8 +15,8 @@ let arr=[];
 let match="";
 let b="";
 
-  const uri="mongodb+srv://santhosh:1234@cluster0.xq2wt.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
-mongoose.connect( uri || 'mongodb://localhost:27017/picdb');
+//   const uri="mongodb+srv://santhosh:1234@cluster0.xq2wt.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+mongoose.connect( 'mongodb://localhost:27017/bookDB');
 
 mongoose.connection.on('connected',()=>{
     console.log("mongoDb connected");
@@ -33,13 +33,36 @@ let picSchema={
    
 }
 
+let regSchema={
+    name:String,
+    pswd:String,
+    cpswd:String
+}
+
+let regmodel=mongoose.model('reg',regSchema);
 let picmodel= mongoose.model('pic',picSchema);
+
+app.get('/',(req,res)=>{
+    res.render('login');
+});
+
+app.get('/register',(req,res)=>{
+    res.render('register')
+})
+
+app.get('/iregister',(req,res)=>{
+    res.render('iregister')
+})
+
+app.get('/ilogin',(req,res)=>{
+    res.render('ilogin');
+})
 
 app.get('/compose',(req,res)=>{
 res.render('form');
 });
 
-app.get('/',(req,res)=>{
+app.get('/index',(req,res)=>{
 
     picmodel.find({},(err,found)=>{
         if(!err){
@@ -85,10 +108,50 @@ app.get('/invalid',(req,res)=>{
     res.render('invalid');
 });
 
+app.post('/',(req,res)=>{
+    let name=req.body.name;
+    let pass=req.body.pswd;
+
+    regmodel.findOne({"name":name},(err,found)=>{
+        if((found.name==name)&&(found.pswd==pass)){
+            res.redirect('/index');
+        }else{
+            res.redirect('/ilogin');
+        }
+    })
+
+});
+
+app.post('/register',(req,res)=>{
+     regname=req.body.name;
+     pswd=req.body.pswd;
+     cpswd=req.body.cpswd;
+
+     if(pswd==cpswd){
+
+   let regdocs=new regmodel({
+       name:regname,
+       pswd:pswd,
+       cpswd:cpswd
+       
+   }) ;
+
+   regdocs.save();
+   res.redirect('/');
+}else{
+    res.redirect('/iregister')
+}
+
+   
+
+   
+})
+
+
 app.post('/adminreg',(req,res)=>{
     let email=req.body.email;
     let pass=req.body.pass;
-    if((email=="Santhoshsan82000@gmail.com")&&(pass=="08112000")){
+    if((email=="santhosh@gmail.com")&&(pass=="211260")){
         res.redirect('/admin');
     }else{
         res.redirect('/adminreg');
@@ -138,7 +201,7 @@ app.post('/compose',(req,res)=>{
 
             arr=[];
 
-    res.redirect('/#books');
+    res.redirect('/index#books');
    }
 });
 

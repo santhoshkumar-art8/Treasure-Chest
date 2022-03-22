@@ -20,8 +20,8 @@
   <header>
     <div class="container-fluid p-0">
       <nav class="navbar navbar-expand-lg">
-        <a class="navbar-brand" href="/">
-          <i class="fas fa-book-reader fa-2x mx-3"></i>Treasure Chest</a>
+        <a class="navbar-brand" href="/admin">
+          <i class="fas fa-book-reader fa-2x mx-3"></i>Treasure Chest -Admin</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
           aria-label="Toggle navigation">
           <i class="fas fa-align-right text-light"></i>
@@ -30,7 +30,7 @@
           <div class="mr-auto"></div>
           <ul class="navbar-nav">
             <li class="nav-item active">
-              <a class="nav-link" href="/">HOME
+              <a class="nav-link" href="/admin">HOME
                 <span class="sr-only">(current)</span>
               </a>
             </li>
@@ -38,7 +38,7 @@
               <a class="nav-link" href="/compose">ADD YOUR BOOK</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/admin#books">BOOKS</a>
+              <a class="nav-link" href="/admin#books">POP THE BOOKS</a>
             </li>
             
             <li class="nav-item">
@@ -48,7 +48,7 @@
                 <a class="nav-link" href="/admin#contact">CONTACTS</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/admin">ADMIN</a>
+                <a class="nav-link" href="/">LOGOUT</a>
               </li>
           </ul>
         </div>
@@ -86,13 +86,13 @@
             <div class="panel text-left" id="about">
               <h1>About</h1>
               <p class="pt-4">
-                we all know that one good book equals to hundred good friends ,we were searching for the good book day by day..Here this blog made for you ,it has collection of all preused books and journels, 
+                we all know that one good book equals to hundred good friends ,we were searching for the good book day by day.Here this blog made for you ,it has collection of all preused books and journels, 
 
                 
                 
-              </p>
-              <p>
-                This blog especially for the exam aspirants who studing for compitative exams ,who looking for book consists of all markings,hints,highlights and important questions helps save lot of your time and your money 
+              
+                This blog especially for the exam aspirants who studing for compitative exams ,who looking for book consists of all markings,hints,highlights and important questions helps save lot of your time and your money .
+                Books play a quintessential role in every student's life by introducing them to a world of imagination, providing knowledge of the outside world, improving their reading, writing and speaking skills as well as boosting memory and intelligence.
               </p>
             </div>
           </div>
@@ -104,7 +104,7 @@
       <div class="cover">
          <div class="overlay"></div> 
         <div class="content text-center">
-          <h1>Some Features That Made Us Unique</h1>
+          <h1>Total Number of Books Available :<%=datas.length%></h1>
          
         </div>
       </div>

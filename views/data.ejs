@@ -13,7 +13,8 @@
     crossorigin="anonymous">
   <link rel="stylesheet" href="../Style.css" />
   <link rel="stylesheet" href="../mobile-style.css">
-  
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+  crossorigin="anonymous">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
   <style>
@@ -26,6 +27,7 @@
       .data{
         padding-bottom: 20px;
       }
+     
   </style>
 </head>
 
@@ -90,7 +92,13 @@
       </div>
     </section> 
     <center>
-    <button onclick="window.location.href='/#books'" class="btn btn-dark bgap"><i class="fas fa-arrow-left"> BACK</i></button>
-  </center>
+      <button class="btn btn-dark bgap"> <a href="tel: <%=data.num%>"><i class="i fas fa-phone ">&nbsp;Call Holder</i></a></button>
+     <button class="btn btn-dark bgap"> <a href="mailto:<%=data.email%>"><i class="i fas fa-envelope ">&nbsp;Mail Holder</i></a></button>
+    </center>
+    <center>
+    <div class="gap">
+     <button onclick="window.location.href='/index#books'" class="btn btn-dark bgap"><i class="fas fa-arrow-left"> BACK</i></button>
+    </div>
+    <center>
 </body>
 </html>

@@ -15,8 +15,10 @@ let arr=[];
 let match="";
 let b="";
 
+
 //   const uri="mongodb+srv://santhosh:1234@cluster0.xq2wt.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
-mongoose.connect( 'mongodb://localhost:27017/bookDB');
+const uri="mongodb+srv://san:123@cluster0.1qibp.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+mongoose.connect( uri||'mongodb://localhost:27017/bookDB');
 
 mongoose.connection.on('connected',()=>{
     console.log("mongoDb connected");
